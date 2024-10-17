@@ -1,8 +1,11 @@
+import SignInForm from '@/components/templates/SignInForm'
 import React from 'react'
 
 const page = () => {
     return (
-        <div>sign In</div>
+        <main className='w-full h-full grid place-items-center'>
+            <SignInForm/>
+        </main>
     )
 }
 
