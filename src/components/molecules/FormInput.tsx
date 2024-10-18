@@ -10,7 +10,7 @@ const FormInput: React.FC<InputTypes> = ({type, placeholder}) => {
         <input
             required
             type={type}
-            className=' w-[250px] h-[25px] m-0 bg-transparent border-b-white border-b placeholder:text-[14px] opacity-30'
+            className=' w-[250px] h-[25px] m-0 bg-transparent border-b-white border-b placeholder:text-[14px] placeholder:text-[#ffffff37] text-[14px] text-white outline-0 '
             placeholder={placeholder} 
         />
     )

@@ -1,6 +1,6 @@
 import React from 'react'
 import H1 from '../atoms/H1'
-import FormInput from '../atoms/FormInput'
+import FormInput from '../molecules/FormInput'
 import H2 from '../atoms/H2'
 import H3 from '../atoms/H3'
 import P from '../atoms/P'
@@ -39,6 +39,7 @@ const SignInForm = () => {
                 <Link href={'/logIn'} title='To logIn page'>
                     <P>Already have an account? Log In</P>
                 </Link>
+
             </section>
 
             <section className='w-full grid place-items-center'>
