@@ -1,5 +1,7 @@
-export default function Home() {
+export default function GeneralPage() {
     return (
-        <div className="h-32 bg-red-400"></div>
+        <>
+        
+        </>
     );
 }
