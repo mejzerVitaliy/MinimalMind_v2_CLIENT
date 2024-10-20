@@ -16,3 +16,30 @@ body {
     background: #000;
     color: aliceblue;
 }
+
+@keyframes modalBackgroundAnim {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes openBurgerAnim {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes closeBurgerAnim {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}

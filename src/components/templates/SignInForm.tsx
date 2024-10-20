@@ -9,7 +9,7 @@ import PasswordInput from '../molecules/PasswordInput'
 
 const SignInForm = () => {
     return (
-        <form className='w-[100%] sm:w-[50%] md:w-[45%] h-[65%] lg:h-[70%] flex flex-col justify-evenly px-2  bg-[#1f1f1fc5] '>
+        <form className='w-[100%] sm:w-[50%] md:w-[45%] lg:w-[35%] h-[70%] lg:h-[70%] flex flex-col justify-between px-2 py-3  bg-[#1f1f1fc5] '>
             <H1 className='text-center'>Sign In</H1>
             <section className='w-full grid place-items-center'>
                 <div className=' flex flex-col text-left mb-3'>
@@ -30,7 +30,7 @@ const SignInForm = () => {
                     <PasswordInput placeholder='Repeat password'/>
                 </div>
 
-                <Link href={'/logIn'} title='To logIn page'>
+                <Link href={'/logIn'} title='To logIn page' className='hover:scale-105 transition-transform'>
                     <P>Already have an account? Log In!</P>
                 </Link>
 
