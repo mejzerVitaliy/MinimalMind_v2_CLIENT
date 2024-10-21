@@ -5,7 +5,7 @@ const BackBtn:React.FC<{backTo: string}> = ({backTo}) => {
     return (
         <Link href={backTo} className='fixed top-2 left-2 md:top-4 md:left-4'>
             <svg
-                className='size-[30px] md:size-[40px]'
+                className='size-[30px] md:size-[40px] hover:animate-[backBtnAnim_1s_ease-in-out_infinite]'
                 viewBox="0 0 44 44"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

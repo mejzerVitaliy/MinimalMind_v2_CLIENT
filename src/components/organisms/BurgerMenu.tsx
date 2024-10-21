@@ -14,7 +14,7 @@ const BurgerMenu = () => {
             }}
             className='w-full h-full fixed top-0 bottom-0 z-40 bg-[#00000087] animate-[modalBackgroundAnim_.5s_ease-in_1]'
         >
-            <section className={`w-[250px] overflow-hidden z-50 h-full fixed left-0 bg-[#4e4e4e] animate-[openBurgerAnim_.4s_ease-in-out_1]`}>
+            <section className={`w-[300px] overflow-hidden z-50 h-full fixed left-0 bg-[#4e4e4e] animate-[openBurgerAnim_.4s_ease-in-out_1]`}>
                 <ul>
                     <Link className='w-full h-auto flex items-center hover:bg-slate-800 transition-all p-2 border-b border-solid border-white ' href={'/'}>
                         <li className=' flex items-center gap-3'>
@@ -43,7 +43,7 @@ const BurgerMenu = () => {
                         </li>
                     </Link>
 
-                    <Link  className=' min-w-[250px] max-w-[300px] h-auto p-2 fixed bottom-0 flex items-center hover:bg-slate-800 transition-all border-t border-solid border-white ' href={'/logIn'}  >
+                    <Link  className=' w-[300px] h-auto p-2 fixed bottom-0 flex items-center hover:bg-slate-800 transition-all border-t border-solid border-white ' href={'/logIn'}  >
                         <li className=' flex items-center gap-3'>
                             <svg xmlns="http://www.w3.org/2000/svg" className='w-[25px] h-[25px] fill-white ' viewBox="0 -960 960 960" >
                                 <path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z" />

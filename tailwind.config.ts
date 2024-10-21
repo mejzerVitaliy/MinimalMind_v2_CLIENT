@@ -12,6 +12,10 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        playwrite: ['Playwrite GB S', 'cursive'],
+        rubik: ['Rubik', 'sans-serif']
+      }
     },
   },
   plugins: [],
