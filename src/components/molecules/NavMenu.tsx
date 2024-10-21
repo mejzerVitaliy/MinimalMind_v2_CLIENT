@@ -16,7 +16,9 @@ const NavMenu = () => {
     return (
         <section className='w-full flex justify-between items-center'>
             
-            <BurgerBtn />
+            <div className='size-[30px] grid place-items-center '>
+                <BurgerBtn />
+            </div>
 
             <Link href={'/logIn'} className='size-[30px] grid place-items-center '>
                 <svg xmlns="http://www.w3.org/2000/svg" className='w-[25px] h-[25px] md:w-[35px] md:h-[35px] ' viewBox="0 -960 960 960"  fill="#FFFFFF">
