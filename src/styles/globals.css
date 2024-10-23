@@ -23,32 +23,3 @@ body {
     color: aliceblue;
 }
 
-@keyframes modalBackgroundAnim {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes openBurgerAnim {
-    from {
-        transform: translateX(-100%);
-    }
-    to {
-        transform: translateX(0%);
-    }
-}
-
-@keyframes backBtnAnim {
-    0% {
-        transform: translateX(0%);
-    }
-    50% {
-        transform: translateX(-20%);
-    }
-    100% {
-        transform: translateX(0%);
-    }
-}
