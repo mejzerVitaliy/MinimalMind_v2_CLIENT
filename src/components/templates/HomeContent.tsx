@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const HomeContent = () => {
     return (
-        <main className='w-full h-full  grid place-items-center p-4'>
+        <main className='w-full  grid place-items-center p-4'>
             <section className=' p-4 bg-yellow-800 rounded-tl-xl rounded-br-xl'>
                 <H2 className='font-playwrite text-center'>
                     Welcome to the kingdom of your thoughts - MinimalMind!
