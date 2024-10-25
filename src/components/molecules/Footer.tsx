@@ -5,7 +5,7 @@ import P from '../atoms/P'
 
 const Footer = () => {
     return (
-        <footer className=' w-full h-[70px] p-2 bg-gray-600'>
+        <footer className=' w-full h-[70px] static bottom-0 p-2 bg-gray-600'>
             <section className='w-full flex justify-between'>
                 <article>
                     <H3>Created by <Link href={'https://github.com/mejzerVitaliy'}><i><u> Meizer Vitalii</u></i></Link></H3>

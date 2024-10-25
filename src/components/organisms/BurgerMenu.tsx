@@ -16,7 +16,7 @@ const BurgerMenu = () => {
             className='w-full h-full fixed top-0 bottom-0 z-40 bg-[#00000087] animate-[modalBackgroundAnim_.5s_ease-in_1]'
         >
             <section className={`w-[300px] overflow-hidden z-50 h-full fixed left-0 bg-[#4e4e4e] animate-[openBurgerAnim_.4s_ease-in-out_1]`}>
-                <button className='absolute top-1 right-1' onClick={()=>dispatch(toggleBurger())} >
+                <button className='absolute top-2 right-2' onClick={()=>dispatch(toggleBurger())} >
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
                 </button>
 
