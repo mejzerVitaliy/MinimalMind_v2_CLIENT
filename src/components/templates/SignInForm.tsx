@@ -1,47 +1,12 @@
 import React from 'react'
 import H1 from '../atoms/H1'
-import FormInput from '../molecules/FormInput'
-import H2 from '../atoms/H2'
-import H3 from '../atoms/H3'
-import P from '../atoms/P'
-import Link from 'next/link'
-import PasswordInput from '../molecules/PasswordInput'
+import FormProvider from '../organisms/FormProvider'
 
 const SignInForm = () => {
     return (
         <form className='w-[100%] sm:w-[50%] md:w-[45%] lg:w-[35%] h-[70%] lg:h-[70%] flex flex-col justify-between px-2 py-3  bg-[#1f1f1fc5] '>
             <H1 className='text-center'>Sign In</H1>
-            <section className='w-full grid place-items-center'>
-                <div className=' flex flex-col text-left mb-3'>
-                    <H3>Login</H3>
-                    <FormInput
-                        type='text'
-                        placeholder='Create username'
-                    />
-                </div>
-                
-                <div className=' flex flex-col text-left mb-3'>
-                    <H3>Password</H3>
-                    <PasswordInput placeholder='Create password'/>
-                </div>
-                
-                <div className=' flex flex-col text-left mb-3'>
-                    <H3>Repeat password</H3>
-                    <PasswordInput placeholder='Repeat password'/>
-                </div>
-
-                <Link href={'/logIn'} title='To logIn page' className='hover:scale-105 transition-transform'>
-                    <P>Already have an account? Log In!</P>
-                </Link>
-
-            </section>
-
-            <section className='w-full grid place-items-center'>
-                <button className='w-[250px] lg:w-[300px] h-[30px] rounded-3xl  bg-gray-500'>
-                    <H2>Sign In</H2>
-                </button>
-            </section>
-            
+            <FormProvider/>
         </form>
     )
 }
