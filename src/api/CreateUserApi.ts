@@ -1,3 +1,4 @@
+import { LogInTypes } from "@/components/organisms/LogInOrganism";
 import { User } from "@/types/UserModel";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
@@ -19,8 +20,21 @@ export const userApi = createApi({
                 url: `users/${id}`,
                 method: 'GET'
             })
+        }),
+        checkUserAuth: builder.query<User | null, { login: string; password: string }>({
+            query: ({ login }) => ({
+                url: 'users',
+                method: 'GET',
+                params: { login },
+            }),
+            transformResponse: (response: User[], meta, arg: LogInTypes) => {
+                const targetUser = response.find(
+                    (user) => user.password === arg.password
+                );
+                return targetUser || null;
+            }
         })
     })
 })
 
-export const { useCreateUserMutation, useGetUserByIdQuery } = userApi
+export const { useCreateUserMutation, useGetUserByIdQuery, useLazyCheckUserAuthQuery } = userApi

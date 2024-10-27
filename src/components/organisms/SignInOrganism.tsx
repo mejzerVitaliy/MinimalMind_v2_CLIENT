@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import Cookies from 'js-cookie'
 import { v4 as uuidv4 } from 'uuid';
@@ -10,7 +10,7 @@ import Link from 'next/link'
 import P from '../atoms/P'
 import H2 from '../atoms/H2'
 import { useCreateUserMutation } from '@/api/CreateUserApi'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export interface inputsTypes {
     login: string;
@@ -19,7 +19,8 @@ export interface inputsTypes {
 }
 
 const SignInOrganism: React.FC = () => {
-
+    const router = useRouter()
+    const [id, setId] = useState<string | undefined>()
     const {
         register, 
         handleSubmit,
@@ -45,12 +46,22 @@ const SignInOrganism: React.FC = () => {
         try {
             await createUser(newUser);
             Cookies.set('UserID', newUser.id, { expires: 365 })
+            router.push('/')
         } catch (error) {
             console.error("Error creating user:", error);
         }
     }
 
-    return (
+
+    useEffect(() => {
+        const userID = Cookies.get('UserID')
+        setId(userID)
+    }, [])
+
+    if (id) {
+        router.push('/')
+        return null
+    } else return (
         <section >
             <section className='w-full grid place-items-center'>
                 <div className=' flex flex-col text-left mb-3'>

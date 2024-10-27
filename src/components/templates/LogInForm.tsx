@@ -7,36 +7,16 @@ import P from '../atoms/P'
 import Link from 'next/link'
 import PasswordInput from '../molecules/PasswordInput'
 
+import LogInOrganism from '../organisms/LogInOrganism'
+import FormProvider from '../organisms/FormProvider'
+
 const LogInForm = () => {
     return (
         <form className='w-[100%] sm:w-[50%] md:w-[45%] lg:w-[35%] h-[65%] lg:h-[70%] flex flex-col justify-between px-2 py-3   bg-[#1f1f1fc5] '>
             <H1 className='text-center'>Log In</H1>
-            <section className='w-full grid place-items-center'>
-                <div className=' flex flex-col text-left mb-3'>
-                    <H3>Login</H3>
-                    <FormInput
-                        type='text'
-                        placeholder='Input your login'
-                    />
-                </div>
-                
-                <div className=' flex flex-col text-left mb-3'>
-                    <H3>Password</H3>
-                    <PasswordInput placeholder='Input your password'/>
-                </div>
-
-                <Link href={'/signIn'} title='To SignIn page' className='hover:scale-105 transition-transform'>
-                    <P>Don't have an account? Sign In!</P>
-                </Link>
-
-            </section>
-
-            <section className='w-full grid place-items-center'>
-                <button className='w-[250px] lg:w-[300px] h-[30px] rounded-3xl  bg-gray-500'>
-                    <H2>Log In</H2>
-                </button>
-            </section>
-            
+            <FormProvider>
+                <LogInOrganism/>
+            </FormProvider>
         </form>
     )
 }

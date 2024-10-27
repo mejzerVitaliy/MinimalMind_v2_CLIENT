@@ -1,13 +1,12 @@
 'use client'
 import { store } from '@/store/store'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Provider } from 'react-redux'
-import SignInOrganism from './SignInOrganism'
 
-const FormProvider = () => {
+const FormProvider:React.FC<{children: ReactNode}> = ({children}) => {
     return (
         <Provider store={store}>
-            <SignInOrganism/>
+            {children}
         </Provider>
     )
 }
