@@ -14,8 +14,8 @@ export const userApi = createApi({
                 body: user
             })
         }),
-        getUserById: builder.query<User, {id: string}>({
-            query: ( id ) => ({
+        getUserById: builder.query<User, string>({
+            query: (id:string ) => ({
                 url: `users/${id}`,
                 method: 'GET'
             })
