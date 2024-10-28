@@ -11,6 +11,7 @@ import P from '../atoms/P'
 import H2 from '../atoms/H2'
 import { useCreateUserMutation } from '@/api/CreateUserApi'
 import { useRouter } from 'next/navigation';
+import FormErrors from '../molecules/FormErrors';
 
 export interface inputsTypes {
     login: string;
@@ -52,75 +53,76 @@ const SignInOrganism: React.FC = () => {
         }
     }
 
-
     useEffect(() => {
         const userID = Cookies.get('UserID')
         setId(userID)
     }, [])
 
-    if (id) {
-        router.push('/')
-        return null
-    } else return (
-        <section >
-            <section className='w-full grid place-items-center'>
-                <div className=' flex flex-col text-left mb-3'>
+    useEffect(() => {
+        id && router.push('/')
+    }, [id])
+    return (
+        <section>
+            <section className="w-full grid place-items-center">
+                <div className="flex flex-col text-left mb-3">
                     <H3>Login</H3>
                     <FormInput
-                        type='text'
-                        placeholder='Create username'
+                        error={!!errors.login}
+                        type="text"
+                        placeholder="Create username"
                         register={register('login', {
                             required: 'Login is required!',
-                            // validate: loginValidation
-                        }) }
+                        })}
                     />
+                    {errors.login && <P className="text-center text-red-600">{errors.login.message}</P>}
                 </div>
                 
-                <div className=' flex flex-col text-left mb-3'>
+                <div className=" w-min flex flex-col text-left mb-3">
                     <H3>Password</H3>
                     <PasswordInput
-                        placeholder='Create password'
+                        error={!!errors.password}
+                        placeholder="Create password"
                         register={register('password', {
                             required: 'Password is required',
                             pattern: {
                                 value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*_-])[A-Za-z\d!@#$%^&*_-]{6,20}$/,
-                                message: 'Password must be longer than 6 characters, include minimum one uppercase and lowercase letter, one number and special symbol.'
-                            }
+                                message: 'Password must be longer than 6 characters, include uppercase, lowercase letters, numbers and special symbols.',
+                            },
                         })}
                     />
+                    {errors.password && !errors.login && <P className="text-center text-red-600 max-w-full">{errors.password.message}</P>}
                 </div>
                 
-                <div className=' flex flex-col text-left mb-3'>
+                <div className="flex flex-col text-left mb-3">
                     <H3>Repeat password</H3>
                     <PasswordInput
-                        placeholder='Repeat password'
+                        error={!!errors.password2}
+                        placeholder="Repeat password"
                         register={register('password2', {
                             required: 'This input is required',
-                            validate: secondPasswordValidation
+                            validate: secondPasswordValidation,
                         })}
                     />
+                    {errors.password2 && !errors.login && !errors.password && <P className="text-center text-red-600">{errors.password2.message}</P>}
                 </div>
-
-                <Link href={'/logIn'} title='To logIn page' className='hover:scale-105 transition-transform'>
+    
+                <Link href={'/logIn'} title="To logIn page" className="hover:scale-105 transition-transform my-2">
                     <P>Already have an account? Log In!</P>
                 </Link>
-
             </section>
-
-            <section className='w-full grid place-items-center'>
+    
+            <section className="w-full grid place-items-center">
                 <button
-                    type='submit'
-                    className='w-[250px] lg:w-[300px] h-[30px] rounded-3xl  bg-gray-500 disabled:bg-red-700 '
+                    type="submit"
+                    className="w-[250px] lg:w-[300px] h-[30px] rounded-3xl bg-gray-500 disabled:bg-gray-400 disabled:text-gray-600"
                     disabled={!isValid || isSubmitting}
-                    onClick={
-                        handleSubmit(onSubmitSignIn)
-                    }
+                    onClick={handleSubmit(onSubmitSignIn)}
                 >
                     <H2>Sign In</H2>
                 </button>
             </section>
         </section>
-    )
+    );
 }
 
 export default SignInOrganism

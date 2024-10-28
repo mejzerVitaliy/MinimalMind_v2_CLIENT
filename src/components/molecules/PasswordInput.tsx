@@ -5,7 +5,7 @@ import FormInput from './FormInput'
 import ClosedEye from '../atoms/ClosedEye'
 import { UseFormRegisterReturn } from 'react-hook-form'
 
-const PasswordInput: React.FC<{ placeholder: string, register?: UseFormRegisterReturn }> = ({ placeholder, register }) => {
+const PasswordInput: React.FC<{ placeholder: string, register?: UseFormRegisterReturn, error:boolean }> = ({ placeholder, register, error }) => {
     const [visibility, setVisibility] = useState<boolean>(false)
 
     const togglePasswordVisibility = () => {
@@ -15,6 +15,7 @@ const PasswordInput: React.FC<{ placeholder: string, register?: UseFormRegisterR
     return (
         <div className='relative'>
             <FormInput
+                error={error}
                 type={!visibility? 'password' : 'text'}
                 placeholder={placeholder}
                 register={register}

@@ -47,6 +47,7 @@ const LogInOrganism = () => {
                 <div className=' flex flex-col text-left mb-3'>
                     <H3>Login</H3>
                     <FormInput
+                        error={errors.login ? true : false}
                         type='text'
                         placeholder='Input your login'
                         register={register('login', {
@@ -58,6 +59,7 @@ const LogInOrganism = () => {
                 <div className=' flex flex-col text-left mb-3'>
                     <H3>Password</H3>
                     <PasswordInput
+                        error={errors.password ? true : false}
                         placeholder='Input your password'
                         register={register('password', {
                             required: 'Password is required.'
@@ -65,7 +67,7 @@ const LogInOrganism = () => {
                     />
                 </div>
 
-                <Link href={'/signIn'} title='To SignIn page' className='hover:scale-105 transition-transform'>
+                <Link href={'/signIn'} title='To SignIn page' className='hover:scale-105 transition-transform my-2 '>
                     <P>Don't have an account? Sign In!</P>
                 </Link>
 

@@ -5,7 +5,7 @@ import SignInOrganism from '../organisms/SignInOrganism'
 
 const SignInForm = () => {
     return (
-        <form className='w-[100%] sm:w-[50%] md:w-[45%] lg:w-[35%] h-[70%] lg:h-[70%] flex flex-col justify-between px-2 py-3  bg-[#1f1f1fc5] '>
+        <form className='w-[100%] sm:w-[50%] md:w-[45%] lg:w-[35%]  flex flex-col justify-evenly px-2 py-3  bg-[#1f1f1fc5] '>
             <H1 className='text-center'>Sign In</H1>
             <FormProvider>
                 <SignInOrganism/>

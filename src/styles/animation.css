@@ -17,6 +17,15 @@
     }
 }
 
+@keyframes isErrorAnim {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
 @keyframes backBtnAnim {
     0% {
         transform: translateX(0%);
