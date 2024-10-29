@@ -11,7 +11,7 @@ import P from '../atoms/P'
 import H2 from '../atoms/H2'
 import { useCreateUserMutation } from '@/api/CreateUserApi'
 import { useRouter } from 'next/navigation';
-import FormErrors from '../molecules/FormErrors';
+import { GetServerSideProps } from 'next';
 
 export interface inputsTypes {
     login: string;
@@ -21,7 +21,6 @@ export interface inputsTypes {
 
 const SignInOrganism: React.FC = () => {
     const router = useRouter()
-    const [id, setId] = useState<string | undefined>()
     const {
         register, 
         handleSubmit,
@@ -46,21 +45,12 @@ const SignInOrganism: React.FC = () => {
         };
         try {
             await createUser(newUser);
-            Cookies.set('UserID', newUser.id, { expires: 365 })
+            Cookies.set('UserID', newUser.id, { expires: 365, sameSite: 'strict', secure: true })
             router.push('/')
         } catch (error) {
             console.error("Error creating user:", error);
         }
     }
-
-    useEffect(() => {
-        const userID = Cookies.get('UserID')
-        setId(userID)
-    }, [])
-
-    useEffect(() => {
-        id && router.push('/')
-    }, [id])
     return (
         <section>
             <section className="w-full grid place-items-center">

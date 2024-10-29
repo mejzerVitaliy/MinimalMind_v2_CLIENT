@@ -12,8 +12,8 @@ import { useRouter } from 'next/navigation'
 const BurgerMenu = () => {
     const dispatch = useDispatch()
     const router = useRouter();
-    const [userID, setUserID] = useState<string | null>(null)
-    const { data, isLoading, isError } = useGetUserByIdQuery(userID!)
+    const [UserID, setUserID] = useState<string | null>(null)
+    const { data, isLoading, isError } = useGetUserByIdQuery(UserID!)
     
     isLoading && null
     isError && console.error('There is Error of getting user data by ID')
