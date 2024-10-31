@@ -11,14 +11,13 @@ import P from '../atoms/P'
 import H2 from '../atoms/H2'
 import { useCreateUserMutation } from '@/api/CreateUserApi'
 import { useRouter } from 'next/navigation';
-import { GetServerSideProps } from 'next';
 
 export interface inputsTypes {
     login: string;
     password: string;
     password2: string;
 }
-
+         
 const SignInOrganism: React.FC = () => {
     const router = useRouter()
     const {
