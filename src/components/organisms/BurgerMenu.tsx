@@ -8,20 +8,20 @@ import Link from 'next/link'
 import H3 from '../atoms/H3'
 import { useGetUserByIdQuery } from '@/api/CreateUserApi'
 import { useRouter } from 'next/navigation'
+import { User } from '@/types/UserModel'
 
 const BurgerMenu = () => {
     const dispatch = useDispatch()
     const router = useRouter();
-    const [UserID, setUserID] = useState<string | null>(null)
-    const { data, isLoading, isError } = useGetUserByIdQuery(UserID!)
+    const [UserID, setUserID] = useState<string | null>(Cookies.get('UserID') || null)
     
-    isLoading && null
-    isError && console.error('There is Error of getting user data by ID')
     
+    const { data, isLoading, isError } = useGetUserByIdQuery(UserID || "", { skip: !UserID });
+
     useEffect(() => {
-        const id = Cookies.get('UserID')
-        id && setUserID(id)
-    }, [])
+        setUserID(Cookies.get('UserID') || null);
+    }, []);
+    
 
     return (
         <section
