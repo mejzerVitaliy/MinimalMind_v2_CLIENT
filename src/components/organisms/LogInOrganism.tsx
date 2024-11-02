@@ -18,7 +18,7 @@ export interface LogInTypes{
 
 const LogInOrganism = () => {
     const router = useRouter();
-    const [id, setId] = useState<string>();
+    const [invalidData, setInvalidData] = useState<boolean>(false);
     const [triggerCheckUserAuth] = useLazyCheckUserAuthQuery()
 
     const {
@@ -34,7 +34,10 @@ const LogInOrganism = () => {
                 Cookies.set('UserID', user.id, { expires: 365 })
                 router.push('/')
             } else {
-                console.error('Invalid login or password')
+                setInvalidData(true)
+                setTimeout(() => {
+                    setInvalidData(false)
+                }, 3000)
             }
         } catch (error) {
             console.error(error)
@@ -47,24 +50,26 @@ const LogInOrganism = () => {
                 <div className=' flex flex-col text-left mb-3'>
                     <H3>Login</H3>
                     <FormInput
-                        error={errors.login ? true : false}
+                        error={!!errors.login}
                         type='text'
                         placeholder='Input your login'
                         register={register('login', {
                             required: 'Login is required.'
                         })}
                     />
+                    {errors.login && <P className="text-center text-red-600">{errors.login.message}</P>}
                 </div>
                 
                 <div className=' flex flex-col text-left mb-3'>
                     <H3>Password</H3>
                     <PasswordInput
-                        error={errors.password ? true : false}
+                        error={!!errors.password}
                         placeholder='Input your password'
                         register={register('password', {
                             required: 'Password is required.'
                         })}
                     />
+                    {errors.password && <P className="text-center text-red-600">{errors.password.message}</P>}
                 </div>
 
                 <Link href={'/signIn'} title='To SignIn page' className='hover:scale-105 transition-transform my-2 '>
@@ -76,12 +81,13 @@ const LogInOrganism = () => {
             <section className='w-full grid place-items-center'>
                 <button
                     type='submit'
-                    disabled={!isValid || isSubmitting || isSubmitted}
+                    disabled={!isValid || isSubmitting}
                     onClick={handleSubmit(onSubmitLogIn)}
                     className='w-[250px] lg:w-[300px] h-[30px] rounded-3xl  bg-gray-500'
                 >
                     <H2>Log In</H2>
                 </button>
+                {invalidData && <H3 className="text-center text-red-600">Invalid login or password.</H3>}
             </section>
         </section>
     )

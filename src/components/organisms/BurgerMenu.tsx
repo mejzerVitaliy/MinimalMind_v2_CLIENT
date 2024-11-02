@@ -85,6 +85,7 @@ const BurgerMenu = () => {
                             onClick={() => {
                                 setUserID(null)
                                 Cookies.remove('UserID')
+                                router.refresh()
                                 router.push('/logIn')
                             }}
                         >
@@ -99,7 +100,6 @@ const BurgerMenu = () => {
             </section>
         </section>
     )
-    
 }
 
 export default BurgerMenu
