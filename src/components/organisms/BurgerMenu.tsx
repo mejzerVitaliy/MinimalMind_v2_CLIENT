@@ -18,8 +18,12 @@ const BurgerMenu = () => {
     
     const { data, isLoading, isError } = useGetUserByIdQuery(UserID || "", { skip: !UserID });
 
+    isLoading && (<div>Loader</div>)
+    isError && console.error('errrrrr00r')
+
     useEffect(() => {
         setUserID(Cookies.get('UserID') || null);
+        console.log(UserID);
     }, []);
     
 

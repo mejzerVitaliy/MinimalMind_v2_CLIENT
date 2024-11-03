@@ -47,7 +47,7 @@ const LogInOrganism = () => {
     return (
         <section>
             <section className='w-full grid place-items-center'>
-                <div className=' flex flex-col text-left mb-3'>
+                <div className=' flex flex-col text-left mb-5'>
                     <H3>Login</H3>
                     <FormInput
                         error={!!errors.login}
@@ -60,7 +60,7 @@ const LogInOrganism = () => {
                     {errors.login && <P className="text-center text-red-600">{errors.login.message}</P>}
                 </div>
                 
-                <div className=' flex flex-col text-left mb-3'>
+                <div className=' flex flex-col text-left mb-5'>
                     <H3>Password</H3>
                     <PasswordInput
                         error={!!errors.password}
@@ -72,7 +72,7 @@ const LogInOrganism = () => {
                     {errors.password && <P className="text-center text-red-600">{errors.password.message}</P>}
                 </div>
 
-                <Link href={'/signIn'} title='To SignIn page' className='hover:scale-105 transition-transform my-2 '>
+                <Link href={'/signIn'} title='To SignIn page' className='hover:scale-105 transition-transform my-6 '>
                     <P>Don't have an account? Sign In!</P>
                 </Link>
 
