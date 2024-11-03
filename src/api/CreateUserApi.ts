@@ -2,7 +2,7 @@ import { LogInTypes } from "@/components/organisms/LogInOrganism";
 import { User } from "@/types/UserModel";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const base_url = 'http://localhost:5000/api/'
+const base_url = 'https://minimal-mind-server.onrender.com/api/'
 
 export const userApi = createApi({
     reducerPath: 'usersApi',

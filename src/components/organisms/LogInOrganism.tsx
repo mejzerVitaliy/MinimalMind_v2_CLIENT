@@ -83,7 +83,7 @@ const LogInOrganism = () => {
                     type='submit'
                     disabled={!isValid || isSubmitting}
                     onClick={handleSubmit(onSubmitLogIn)}
-                    className='w-[250px] lg:w-[300px] h-[30px] rounded-3xl  bg-gray-500'
+                    className='w-[250px] lg:w-[300px] h-[30px] rounded-3xl bg-gray-500 disabled:bg-gray-400 disabled:text-gray-600'
                 >
                     <H2>Log In</H2>
                 </button>
