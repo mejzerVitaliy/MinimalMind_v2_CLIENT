@@ -60,7 +60,7 @@ const LogInOrganism = () => {
                     {errors.login && <P className="text-center text-red-600">{errors.login.message}</P>}
                 </div>
                 
-                <div className=' flex flex-col text-left mb-5'>
+                <div className=' flex flex-col text-left'>
                     <H3>Password</H3>
                     <PasswordInput
                         error={!!errors.password}
